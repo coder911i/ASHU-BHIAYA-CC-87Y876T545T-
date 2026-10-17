@@ -6,6 +6,7 @@ import crypto from "crypto";
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const category = searchParams.get("category");
+  const session = await getCurrentAdminSession();
   const publishedOnly = searchParams.get("publishedOnly") === "true";
 
   const db = getDb();
@@ -17,7 +18,8 @@ export async function GET(req: NextRequest) {
     params.push(category);
   }
 
-  if (publishedOnly) {
+  // Anonymous visitors must never receive unpublished provider records.
+  if (!session || publishedOnly) {
     query += " AND published = 1";
   }
 
