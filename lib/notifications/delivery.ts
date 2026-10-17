@@ -38,17 +38,13 @@ export async function dispatchEnquiryNotifications(
   let emailDetails = "SMTP/Email credentials not configured in environment.";
 
   if (emailProvider === "mock") {
-    emailStatus = "delivered";
-    emailDetails = `Dispatched mock notification to staff (${process.env.ADMIN_NOTIFICATION_EMAIL || "admin@vsrassociates.in"}) and applicant.`;
+    emailStatus = "pending_configuration";
+    emailDetails = "Mock mode is enabled; no email was sent.";
   } else if (emailProvider === "smtp") {
-    if (process.env.SMTP_HOST && process.env.SMTP_USER) {
-      // Configured SMTP - In real deployment, executes nodemailer/provider
-      emailStatus = "delivered";
-      emailDetails = `Dispatched via SMTP (${process.env.SMTP_HOST}) to ${payload.email || "staff"}`;
-    } else {
-      emailStatus = "pending_configuration";
-      emailDetails = "SMTP_HOST / SMTP_USER missing from environment.";
-    }
+    emailStatus = "pending_configuration";
+    emailDetails = process.env.SMTP_HOST && process.env.SMTP_USER
+      ? "SMTP credentials are present, but an email transport is not implemented."
+      : "SMTP_HOST / SMTP_USER missing from environment.";
   }
 
   const emailLogId = `notif-email-${crypto.randomUUID()}`;
@@ -82,8 +78,8 @@ export async function dispatchEnquiryNotifications(
   let waDetails = "WhatsApp Cloud API credentials not configured. Setup instructions in documentation.";
 
   if (isWhatsAppConfigured) {
-    waStatus = "delivered";
-    waDetails = `Dispatched WhatsApp template enquiry alert to ${payload.mobile}`;
+    waStatus = "pending_configuration";
+    waDetails = "Credentials are present, but WhatsApp Cloud API sending is not implemented.";
   }
 
   const waLogId = `notif-wa-${crypto.randomUUID()}`;
@@ -115,8 +111,8 @@ export async function dispatchEnquiryNotifications(
   let smsDetails = "SMS Gateway API key not configured. Lead recorded in database.";
 
   if (isSmsConfigured) {
-    smsStatus = "delivered";
-    smsDetails = `Dispatched SMS confirmation to ${payload.mobile}`;
+    smsStatus = "pending_configuration";
+    smsDetails = "Credentials are present, but SMS provider sending is not implemented.";
   }
 
   const smsLogId = `notif-sms-${crypto.randomUUID()}`;
