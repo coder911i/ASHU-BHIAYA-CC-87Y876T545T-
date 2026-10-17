@@ -46,7 +46,6 @@ button, input, select, textarea { font: inherit; }
 .hero-assurance span { display: inline-flex; align-items: center; gap: 7px; }
 .hero-assurance svg { color: #a5b0ff; }
 .hero-art { min-width: 0; position: relative; }
-.hero-art > div:first-child { min-height: 360px; }
 .hero-art canvas { max-width: 100%; }
 .art-label { position: absolute; z-index: 3; display: flex; align-items: center; gap: 9px; border: 1px solid rgba(255,255,255,.15); border-radius: 14px; background: rgba(18,28,54,.8); color: #dce3fa; box-shadow: 0 15px 45px rgba(0,0,0,.15); backdrop-filter: blur(16px); }
 .art-label-top { top: 8%; right: 1%; padding: 10px 13px; font-size: 10px; font-weight: 700; }
@@ -125,7 +124,6 @@ button, input, select, textarea { font: inherit; }
   .hero-copy h1 { font-size: clamp(45px, 9vw, 67px); }
   .hero-description { max-width: 620px; }
   .hero-art { max-width: 620px; width: 100%; margin: 0 auto; }
-  .hero-art > div:first-child { min-height: 300px; }
   .service-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .section-calculator .site-container, .process-layout, .faq-layout { grid-template-columns: 1fr; gap: 28px; }
   .calculator-intro { padding-top: 0; }
@@ -140,7 +138,6 @@ button, input, select, textarea { font: inherit; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .button { width: 100%; }
   .hero-assurance { gap: 11px; font-size: 9px; }
-  .hero-art > div:first-child { min-height: 260px; }
   .art-label-top { top: 0; right: 0; }
   .art-label-bottom { bottom: 0; left: 0; }
   .hero-bottom { align-items: start; flex-direction: column; gap: 10px; }
