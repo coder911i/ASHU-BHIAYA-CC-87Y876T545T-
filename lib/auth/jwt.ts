@@ -1,6 +1,12 @@
 import { SignJWT, jwtVerify } from "jose";
 
-const JWT_SECRET_STRING = process.env.ADMIN_JWT_SECRET || "vsr_associates_default_jwt_secret_key_prod_2026";
+const configuredSecret = process.env.ADMIN_JWT_SECRET;
+if (process.env.NODE_ENV === "production" && (!configuredSecret || configuredSecret.length < 32)) {
+  throw new Error("ADMIN_JWT_SECRET must be configured with at least 32 characters in production.");
+}
+
+// The fallback is intentionally development-only. Production fails closed above.
+const JWT_SECRET_STRING = configuredSecret || "local-development-only-secret-change-before-deploy";
 const SECRET_KEY = new TextEncoder().encode(JWT_SECRET_STRING);
 
 export interface AdminTokenPayload {
