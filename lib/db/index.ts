@@ -137,8 +137,11 @@ function initializeSchema(db: Database.Database) {
   // Seed default admin if none exists
   const adminCount = db.prepare("SELECT COUNT(*) as count FROM admin_users").get() as { count: number };
   if (adminCount.count === 0) {
-    const defaultEmail = process.env.ADMIN_DEFAULT_EMAIL || "admin@vsrassociates.in";
-    const defaultPassword = process.env.ADMIN_DEFAULT_PASSWORD || "AdminSecure@2026";
+    const defaultEmail = process.env.ADMIN_DEFAULT_EMAIL;
+    const defaultPassword = process.env.ADMIN_DEFAULT_PASSWORD;
+    if (!defaultEmail || !defaultPassword || defaultPassword.length < 12) {
+      throw new Error("Configure ADMIN_DEFAULT_EMAIL and ADMIN_DEFAULT_PASSWORD (at least 12 characters) before first database initialization.");
+    }
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(defaultPassword, salt);
     
@@ -154,19 +157,23 @@ function initializeSchema(db: Database.Database) {
       new Date().toISOString()
     );
 
-    // Also seed initial enquiry manager
-    const managerHash = bcrypt.hashSync("Manager@2026", salt);
-    db.prepare(`
-      INSERT INTO admin_users (id, email, password_hash, name, role, created_at)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `).run(
-      "admin-bootstrap-02",
-      "manager@vsrassociates.in",
-      managerHash,
-      "Lead Operations Manager",
-      "enquiry_manager",
-      new Date().toISOString()
-    );
+    // Optionally seed an enquiry manager only when both credentials are explicitly configured.
+    const managerEmail = process.env.ADMIN_MANAGER_EMAIL;
+    const managerPassword = process.env.ADMIN_MANAGER_PASSWORD;
+    if (managerEmail && managerPassword && managerPassword.length >= 12) {
+      const managerHash = bcrypt.hashSync(managerPassword, bcrypt.genSaltSync(10));
+      db.prepare(`
+        INSERT INTO admin_users (id, email, password_hash, name, role, created_at)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(
+        "admin-bootstrap-02",
+        managerEmail.toLowerCase(),
+        managerHash,
+        "Lead Operations Manager",
+        "enquiry_manager",
+        new Date().toISOString()
+      );
+    }
   }
 
   // Seed default providers if none exist (indicative published rate information with explicit source disclosures)
