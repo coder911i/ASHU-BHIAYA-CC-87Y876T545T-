@@ -75,13 +75,13 @@ export default function FaqsPage() {
     <div className="pt-28 pb-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-sky-400">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-slate-200 text-xs font-semibold text-indigo-600">
           Knowledge Base &bull; Consumer Clarity
         </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
           Frequently Asked Questions
         </h1>
-        <p className="text-sm text-slate-300">
+        <p className="text-sm text-slate-600">
           Clear, straightforward answers about loan processes, eligibility, documentation, and regulatory boundaries.
         </p>
       </div>
@@ -90,7 +90,7 @@ export default function FaqsPage() {
       <div className="space-y-12">
         {faqCategories.map((cat, idx) => (
           <div key={idx} className="space-y-4">
-            <h2 className="text-xl font-bold text-white pb-2 border-b border-slate-800 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-slate-900 pb-2 border-b border-slate-200 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-sky-400" />
               <span>{cat.category}</span>
             </h2>
@@ -99,13 +99,13 @@ export default function FaqsPage() {
               {cat.items.map((item, i) => (
                 <details
                   key={i}
-                  className="group glass-panel rounded-2xl border border-slate-800 p-5 transition-all open:border-sky-500/30"
+                  className="group glass-panel rounded-2xl border border-slate-200 p-5 transition-all open:border-sky-500/30"
                 >
-                  <summary className="font-semibold text-sm sm:text-base text-white cursor-pointer list-none flex items-center justify-between gap-4">
+                  <summary className="font-semibold text-sm sm:text-base text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
                     <span>{item.q}</span>
-                    <HelpCircle className="w-4 h-4 text-sky-400 shrink-0 group-open:rotate-180 transition-transform" />
+                    <HelpCircle className="w-4 h-4 text-indigo-600 shrink-0 group-open:rotate-180 transition-transform" />
                   </summary>
-                  <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+                  <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
                     {item.a}
                   </p>
                 </details>
@@ -116,15 +116,15 @@ export default function FaqsPage() {
       </div>
 
       {/* Conversion Box */}
-      <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 text-center space-y-4">
-        <h3 className="text-xl font-bold text-white">Have a Specific Query Not Listed Here?</h3>
-        <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto">
+      <div className="p-8 rounded-3xl bg-indigo-50 border border-slate-200 text-center space-y-4">
+        <h3 className="text-xl font-bold text-slate-900">Have a Specific Query Not Listed Here?</h3>
+        <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
           Our coordinators are available Monday through Saturday to answer questions regarding your documentation.
         </p>
         <div className="flex justify-center gap-3 pt-2">
           <Link
             href="/contact"
-            className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors"
+            className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-700 text-slate-900 font-semibold text-xs transition-colors"
           >
             Contact Desk
           </Link>
