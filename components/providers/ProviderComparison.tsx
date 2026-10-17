@@ -79,7 +79,7 @@ export function ProviderComparison({ category = "all", title }: ProviderComparis
             {title || "Indicative Provider Comparison"}
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">
-            Published schedules from verified partner institutions and public tariff sheets.
+            Indicative provider details configured in the catalogue. Verify current rates and terms directly with the institution.
           </p>
         </div>
 
