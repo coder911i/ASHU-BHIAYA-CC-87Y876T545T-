@@ -98,7 +98,7 @@ export default async function LoanDetailPage({
           <div className="pt-4 flex flex-wrap gap-3">
             <Link
               href={`/apply?service=loan&sub=${loan.slug}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all text-sm shadow-md shadow-blue-500/20"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-slate-900 bg-blue-600 hover:bg-blue-700 transition-all text-sm shadow-md shadow-blue-500/20"
             >
               <span>Apply for {loan.title}</span>
               <ArrowRight className="w-4 h-4" />
@@ -199,7 +199,7 @@ export default async function LoanDetailPage({
       </div>
 
       {/* Conversion Banner */}
-      <div className="p-8 rounded-3xl bg-blue-600 text-white text-center space-y-4 shadow-xl shadow-blue-500/20">
+      <div className="p-8 rounded-3xl bg-blue-600 text-slate-900 text-center space-y-4 shadow-xl shadow-blue-500/20">
         <h3 className="text-2xl font-black">Need Personalised Advice for {loan.title}?</h3>
         <p className="text-xs sm:text-sm text-blue-100 max-w-lg mx-auto">
           Share your requirements. An authorised coordinator will assist in file structuring and multi-lender positioning.
