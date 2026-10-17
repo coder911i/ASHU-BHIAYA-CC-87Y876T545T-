@@ -1,13 +1,14 @@
 import { SignJWT, jwtVerify } from "jose";
 
-const configuredSecret = process.env.ADMIN_JWT_SECRET;
-if (process.env.NODE_ENV === "production" && (!configuredSecret || configuredSecret.length < 32)) {
-  throw new Error("ADMIN_JWT_SECRET must be configured with at least 32 characters in production.");
-}
+function getSecretKey(): Uint8Array {
+  const configuredSecret = process.env.ADMIN_JWT_SECRET;
+  if (process.env.NODE_ENV === "production" && (!configuredSecret || configuredSecret.length < 32)) {
+    throw new Error("ADMIN_JWT_SECRET must be configured with at least 32 characters in production.");
+  }
 
-// The fallback is intentionally development-only. Production fails closed above.
-const JWT_SECRET_STRING = configuredSecret || "local-development-only-secret-change-before-deploy";
-const SECRET_KEY = new TextEncoder().encode(JWT_SECRET_STRING);
+  // The fallback is development-only; it is never accepted in production.
+  return new TextEncoder().encode(configuredSecret || "local-development-only-secret-change-before-deploy");
+}
 
 export interface AdminTokenPayload {
   userId: string;
@@ -21,12 +22,12 @@ export async function signAdminToken(payload: AdminTokenPayload, expiresInSecond
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime(`${expiresInSeconds}s`)
-    .sign(SECRET_KEY);
+    .sign(getSecretKey());
 }
 
 export async function verifyAdminToken(token: string): Promise<AdminTokenPayload | null> {
   try {
-    const { payload } = await jwtVerify(token, SECRET_KEY, {
+    const { payload } = await jwtVerify(token, getSecretKey(), {
       algorithms: ["HS256"],
     });
     return payload as unknown as AdminTokenPayload;
