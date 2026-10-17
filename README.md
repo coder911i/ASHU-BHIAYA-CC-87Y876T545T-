@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vrinda Shree Radha Associates (VSR Associates)
 
-## Getting Started
+A Next.js financial-services discovery website with loan, insurance and investment information, 3D hero visuals, EMI calculators, provider comparisons, customer enquiry capture, and a staff administration portal.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router, React, TypeScript
+- Tailwind CSS, Framer Motion, React Three Fiber / Three.js
+- SQLite via `better-sqlite3`
+- Zod validation, bcrypt password hashing, JWT admin sessions
+- Vitest unit tests and ESLint
+
+## Local setup
+
+Use a Node.js version compatible with the project's Next.js version.
+
+```bash
+npm ci
+```
+
+Create a local `.env.local` (never commit it) with unique values:
+
+```dotenv
+ADMIN_JWT_SECRET=replace-with-a-random-secret-at-least-32-characters
+ADMIN_DEFAULT_EMAIL=your-admin-email@example.com
+ADMIN_DEFAULT_PASSWORD=replace-with-a-unique-password-at-least-12-chars
+# Optional: create an enquiry-manager account on first database initialization
+ADMIN_MANAGER_EMAIL=your-manager-email@example.com
+ADMIN_MANAGER_PASSWORD=another-unique-password-at-least-12-chars
+ADMIN_NOTIFICATION_EMAIL=your-team@example.com
+```
+
+The admin accounts are bootstrapped only when the database has no admin users. If a database already exists, changing bootstrap variables does **not** change existing passwords; use a controlled password-reset procedure.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm test
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The SQLite database is stored at `data/vsr.db`. Keep that directory on persistent storage. Serverless deployments with ephemeral filesystems can lose data or create separate databases across instances; use a managed persistent database before production deployment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notification integrations
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Enquiry notifications are currently logged as pending unless a real provider integration is implemented. Setting SMTP, WhatsApp, or SMS environment variables alone does not send messages. Do not tell customers a notification was delivered until a provider API call confirms it.
 
-## Learn More
+## Production checklist
 
-To learn more about Next.js, take a look at the following resources:
+- Configure `ADMIN_JWT_SECRET` (at least 32 characters) and unique admin credentials in deployment environment variables.
+- Use persistent database storage; verify backups and restore procedures.
+- Configure real email/WhatsApp/SMS providers and test delivery end-to-end.
+- Add rate limiting and abuse protection to public enquiry and admin-login endpoints.
+- Review lender/insurer rate claims and source dates before publishing.
+- Run lint, unit tests, and a production build before release.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` – public landing page
+- `/loans`, `/insurance`, `/investments` – service discovery
+- `/emi-calculator` – EMI estimator
+- `/apply`, `/contact` – enquiry flows
+- `/admin/login`, `/admin/dashboard` – staff portal
