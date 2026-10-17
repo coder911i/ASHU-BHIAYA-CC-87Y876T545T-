@@ -12,38 +12,38 @@ export default function AboutPage() {
     <div className="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-sky-400">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-semibold text-indigo-700">
           Corporate Identity &bull; Ethical Standards
         </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
           About Vrinda Shree Radha Associates
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
           A dedicated financial-services discovery and application-assistance platform committed to transparency, mathematical precision, and consumer trust.
         </p>
       </div>
 
       {/* Mission & Purpose */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800 space-y-5">
-          <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+        <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-200 space-y-5">
+          <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-indigo-600 flex items-center justify-center">
             <Target className="w-6 h-6" />
           </div>
-          <h2 className="text-2xl font-bold text-white">Our Mission</h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <h2 className="text-2xl font-bold text-slate-900">Our Mission</h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             The modern financial ecosystem offers a vast array of loan options, insurance plans, and wealth solutions. Yet, borrowers and families are frequently confronted with opaque interest structures, confusing jargon, and aggressive unsolicited sales calls.
           </p>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             <strong>Vrinda Shree Radha Associates (VSR Associates)</strong> was founded with a single guiding mission: to bring institutional clarity, unbiased comparison, and ethical documentation assistance to consumers seeking credit and authorized financial facilities.
           </p>
         </div>
 
-        <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800 space-y-5">
+        <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-200 space-y-5">
           <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
             <Building className="w-6 h-6" />
           </div>
-          <h2 className="text-2xl font-bold text-white">What We Do</h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <h2 className="text-2xl font-bold text-slate-900">What We Do</h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             We act as a specialized bridge between consumers and regulated financial institutions:
           </p>
           <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
@@ -66,7 +66,7 @@ export default function AboutPage() {
       {/* Core Principles */}
       <div className="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800 space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <h3 className="text-2xl font-bold text-white">Our Operating Principles</h3>
+          <h3 className="text-2xl font-bold text-slate-900">Our Operating Principles</h3>
           <p className="text-xs sm:text-sm text-slate-400">
             We believe ethical conduct and consumer privacy are non-negotiable fundamentals.
           </p>
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2.5">
-            <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">01. Honesty Over Hype</span>
+            <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">01. Honesty Over Hype</span>
             <h4 className="text-base font-bold text-white">No False Guarantees</h4>
             <p className="text-xs text-slate-400 leading-relaxed">
               We never fabricate bank approvals, promise &apos;instant disbursements&apos;, or claim zero-interest rates that do not exist.
@@ -101,7 +101,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 text-center space-y-4">
-        <h3 className="text-2xl font-bold text-white">Experience Transparent Financial Facilitation</h3>
+        <h3 className="text-2xl font-bold text-slate-900">Experience Transparent Financial Facilitation</h3>
         <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto">
           Connect with an authorized coordinator to review your loan, insurance, or investment options.
         </p>
