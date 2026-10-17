@@ -125,7 +125,7 @@ export default function HomePage() {
     },
     {
       q: "How is my personal and financial information protected?",
-      a: "We adhere to strict data privacy protocols. Your details are securely encrypted in transit and at rest, and are strictly used solely for processing your specific financial services enquiry.",
+      a: "We use access controls and operational safeguards to handle enquiry details. Data-at-rest protection depends on the hosting and database configuration, so please share only information needed for your enquiry. Your details should be used only for the requested financial-services follow-up in accordance with the published privacy policy.",
     },
   ];
 
