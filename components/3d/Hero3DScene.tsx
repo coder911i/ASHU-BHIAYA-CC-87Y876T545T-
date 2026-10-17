@@ -165,7 +165,7 @@ function FloatingFintechCards() {
 
 export function Hero3DScene() {
   return (
-    <div className="relative w-full h-[400px] sm:h-[480px] md:h-[560px] overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50/50 via-white to-slate-50 border border-slate-200 shadow-xl">
+    <div className="relative w-full h-[300px] sm:h-[390px] md:h-[440px] overflow-hidden rounded-[28px] bg-gradient-to-br from-[#182345] via-[#121a33] to-[#101426] border border-white/10 shadow-2xl">
       <Canvas
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         dpr={[1, 1.5]}
