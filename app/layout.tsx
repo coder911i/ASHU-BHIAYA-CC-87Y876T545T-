@@ -4,27 +4,18 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Vrinda Shree Radha Associates (VSR Associates) | Financial Discovery & Assistance",
-  description: "Independent finance-services marketplace for Home Loans, Business Loans, Personal Loans, Insurance and authorized financial facilitation in India. Real-time EMI calculator, provider comparison, and assisted documentation.",
-  keywords: [
-    "VSR Associates",
-    "Vrinda Shree Radha Associates",
-    "Home Loan India",
-    "Business Loan MSME",
-    "EMI Calculator",
-    "Loan Comparison",
-    "Personal Loan",
-    "Insurance Facilitation",
-  ],
-  authors: [{ name: "Vrinda Shree Radha Associates" }],
-  icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/logo-icon.svg",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://vsrassociates.in"),
+  title: {
+    default: "VSR Associates | Financial Services, Made Clearer",
+    template: "%s | VSR Associates",
   },
+  description: "Explore loan options, compare indicative provider information, estimate EMIs and request financial-services assistance from Vrinda Shree Radha Associates.",
+  keywords: ["VSR Associates", "Vrinda Shree Radha Associates", "home loan", "business loan", "EMI calculator", "insurance", "SIP"],
+  authors: [{ name: "Vrinda Shree Radha Associates" }],
+  icons: { icon: "/icon.svg", shortcut: "/icon.svg", apple: "/logo-icon.svg" },
   openGraph: {
-    title: "VSR Associates | Financial Services Marketplace",
-    description: "Explore loan options, calculate exact repayments, and request dedicated documentation assistance.",
+    title: "VSR Associates | Financial Services, Made Clearer",
+    description: "Explore financial options, estimate repayments and understand your next steps.",
     url: "https://vsrassociates.in",
     siteName: "VSR Associates",
     locale: "en_IN",
@@ -32,18 +23,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" className="h-full antialiased scroll-smooth">
-      <body className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 selection:bg-sky-500 selection:text-white">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en" className="h-full antialiased scroll-smooth">
+    <body className="min-h-full flex flex-col bg-white text-slate-900 selection:bg-indigo-200 selection:text-slate-950">
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <Navbar />
+      <main id="main-content" className="flex-1">{children}</main>
+      <Footer />
+    </body>
+  </html>;
 }
