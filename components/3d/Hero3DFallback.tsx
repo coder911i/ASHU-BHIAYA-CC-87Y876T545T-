@@ -1,73 +1,33 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, TrendingUp, Home, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, TrendingUp, Home, CheckCircle2, ArrowUpRight, Sparkles } from "lucide-react";
 
 export function Hero3DFallback() {
   return (
-    <div className="relative w-full h-[380px] sm:h-[480px] md:h-[540px] flex items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50/80 via-white to-slate-50 border border-slate-200/80 p-6 shadow-xl">
-      {/* Decorative ambient background glows */}
-      <div className="absolute -top-12 -right-12 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl" />
-
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-ambient-grid opacity-40" />
-
-      {/* Central Stylized Architectural Card Composition */}
-      <div className="relative z-10 w-full max-w-md flex flex-col items-center">
-        {/* Main Architectural Card */}
-        <div className="w-full bg-white p-6 rounded-2xl relative overflow-hidden transition-transform duration-500 hover:scale-[1.02] border border-blue-100 shadow-xl shadow-blue-500/5">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+    <div className="relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#182345] via-[#121a33] to-[#101426] p-5 shadow-2xl sm:h-[390px] md:h-[440px]">
+      <div className="absolute -right-12 -top-16 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
+      <div className="absolute -bottom-20 -left-12 h-56 w-56 rounded-full bg-sky-500/15 blur-3xl" />
+      <div className="absolute inset-0 bg-ambient-grid opacity-20" />
+      <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-200/10 shadow-[0_0_0_35px_rgba(160,170,255,.025),0_0_0_70px_rgba(160,170,255,.02)]" />
+      <div className="relative z-10 w-full max-w-sm">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-5 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:-translate-y-1 sm:p-6">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
-                <Home className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Priority Facility</span>
-                <h4 className="text-base font-bold text-slate-900">Residential &amp; Commercial Loans</h4>
-              </div>
+              <div className="rounded-xl border border-indigo-200/15 bg-indigo-300/10 p-2.5 text-indigo-200"><Home size={22} /></div>
+              <div><span className="text-[10px] font-semibold uppercase tracking-[.15em] text-indigo-200/80">Your next chapter</span><h4 className="mt-1 text-sm font-bold text-white">Plan with more clarity</h4></div>
             </div>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-              Active Portfolios
-            </span>
+            <Sparkles size={17} className="text-indigo-200" />
           </div>
-
-          <div className="grid grid-cols-2 gap-4 my-5">
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
-              <div className="text-xs text-slate-500 font-medium">Indicative Rates From</div>
-              <div className="text-xl font-extrabold text-slate-900 mt-1">8.50% <span className="text-xs text-slate-500 font-normal">p.a.</span></div>
-              <div className="text-[10px] text-blue-600 font-semibold mt-0.5">Subject to lender terms</div>
-            </div>
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100">
-              <div className="text-xs text-slate-500 font-medium">Flexible Tenure Up To</div>
-              <div className="text-xl font-extrabold text-slate-900 mt-1">30 <span className="text-xs text-slate-500 font-normal">Years</span></div>
-              <div className="text-[10px] text-emerald-600 font-semibold mt-0.5">Optimised EMI brackets</div>
-            </div>
+          <div className="my-5 grid grid-cols-2 gap-3">
+            <div className="rounded-xl border border-white/10 bg-white/[0.045] p-3.5"><div className="text-[10px] text-slate-300">Loan planning</div><div className="mt-1 text-lg font-bold text-white">EMI</div><div className="mt-1 text-[9px] text-indigo-200">Estimate monthly cost</div></div>
+            <div className="rounded-xl border border-white/10 bg-white/[0.045] p-3.5"><div className="text-[10px] text-slate-300">Explore options</div><div className="mt-1 text-lg font-bold text-white">Compare</div><div className="mt-1 text-[9px] text-emerald-200">Review available details</div></div>
           </div>
-
-          <div className="flex items-center gap-2 text-xs text-slate-600">
-            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-            <span>Assisted documentation with verified partner institutions</span>
-          </div>
+          <div className="flex items-center gap-2 text-[10px] leading-relaxed text-slate-200"><CheckCircle2 size={15} className="shrink-0 text-emerald-300" />Clear information, transparent caveats and a practical next step.</div>
         </div>
-
-        {/* Floating Secondary Cards */}
-        <div className="w-full flex items-center justify-between gap-3 mt-4">
-          <div className="flex-1 bg-white p-3.5 rounded-xl border border-slate-200 shadow-md flex items-center gap-2.5">
-            <TrendingUp className="w-4 h-4 text-emerald-600" />
-            <div className="text-left">
-              <div className="text-[10px] text-slate-500">Financing Match</div>
-              <div className="text-xs font-bold text-slate-900">10+ Categories</div>
-            </div>
-          </div>
-
-          <div className="flex-1 bg-white p-3.5 rounded-xl border border-slate-200 shadow-md flex items-center gap-2.5">
-            <ShieldCheck className="w-4 h-4 text-blue-600" />
-            <div className="text-left">
-              <div className="text-[10px] text-slate-500">Privacy Protocol</div>
-              <div className="text-xs font-bold text-slate-900">Zero Broker Fee</div>
-            </div>
-          </div>
+        <div className="mt-3 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-[#111a32]/80 px-3 py-2.5"><TrendingUp size={15} className="text-emerald-300" /><span className="text-[10px] font-semibold text-slate-100">Plan at your pace</span></div>
+          <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-[#111a32]/80 px-3 py-2.5"><ShieldCheck size={15} className="text-indigo-200" /><span className="text-[10px] font-semibold text-slate-100">Consent-led enquiry</span><ArrowUpRight size={13} className="text-slate-400" /></div>
         </div>
       </div>
     </div>
