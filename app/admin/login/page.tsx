@@ -7,8 +7,8 @@ import { Lock, Mail, AlertCircle, ArrowRight, ShieldCheck } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("admin@vsrassociates.in");
-  const [password, setPassword] = useState("AdminSecure@2026");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
