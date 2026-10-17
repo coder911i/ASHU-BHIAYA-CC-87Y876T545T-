@@ -5,7 +5,6 @@ import {
   LockKeyhole, PiggyBank, ShieldCheck, Sparkles, TrendingUp, Wallet,
 } from "lucide-react";
 import { Hero3DContainer } from "@/components/3d/Hero3DContainer";
-import { Hero3DFallback } from "@/components/3d/Hero3DFallback";
 import { EmiCalculator } from "@/components/calculator/EmiCalculator";
 import { ProviderComparison } from "@/components/providers/ProviderComparison";
 
