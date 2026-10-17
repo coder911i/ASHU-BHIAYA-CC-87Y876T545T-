@@ -1,8 +1,15 @@
 import React from "react";
+import { redirect } from "next/navigation";
+import { getCurrentAdminSession, hasPermission } from "@/lib/auth/session";
 import { getDb } from "@/lib/db";
 import { Settings, Shield, Clock, Mail, Phone, MapPin, Database, CheckCircle2 } from "lucide-react";
 
-export default function AdminSettingsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function AdminSettingsPage() {
+  const session = await getCurrentAdminSession();
+  if (!session || !hasPermission(session.role, "admin")) redirect("/admin/login");
+
   const db = getDb();
 
   const settingsRows = db.prepare("SELECT * FROM site_settings").all() as { key: string; value: string; updated_at: string }[];
@@ -24,24 +31,24 @@ export default function AdminSettingsPage() {
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
           System Settings &amp; Delivery Audit Logs
         </h1>
-        <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
           Global entity parameters, contact numbers, and live notification delivery telemetry.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Column: Organization Parameters */}
-        <div className="lg:col-span-5 glass-panel p-6 rounded-3xl border border-slate-800 space-y-5">
+        <div className="lg:col-span-5 glass-panel p-6 rounded-3xl border border-slate-200 space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Settings className="w-4 h-4 text-sky-400" />
             <span>Organisation Parameters</span>
           </h3>
 
           <div className="space-y-3 text-xs">
-            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
               <span className="text-slate-400 block font-semibold">Entity Trade Name</span>
               <div className="text-white font-medium">Vrinda Shree Radha Associates (VSR Associates)</div>
             </div>
@@ -97,7 +104,7 @@ export default function AdminSettingsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="border-b border-slate-800 bg-slate-900/60 text-slate-400">
+                <tr className="border-b border-slate-800 bg-slate-50 text-slate-400">
                   <th className="py-2.5 px-3">Channel</th>
                   <th className="py-2.5 px-3">Recipient</th>
                   <th className="py-2.5 px-3">Status</th>
@@ -105,13 +112,13 @@ export default function AdminSettingsPage() {
                   <th className="py-2.5 px-3 text-right">Logged At</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {recentLogs.map((log) => (
-                  <tr key={log.id} className="hover:bg-slate-800/20 transition-colors">
+                  <tr key={log.id} className="hover:bg-indigo-50 transition-colors">
                     <td className="py-2.5 px-3 font-semibold uppercase text-sky-400 text-[10px]">
                       {log.channel}
                     </td>
-                    <td className="py-2.5 px-3 font-mono text-slate-300">
+                    <td className="py-2.5 px-3 font-mono text-slate-700">
                       {log.recipient}
                     </td>
                     <td className="py-2.5 px-3">
