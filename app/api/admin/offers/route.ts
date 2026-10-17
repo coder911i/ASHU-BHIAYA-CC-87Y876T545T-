@@ -5,11 +5,13 @@ import crypto from "crypto";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
+  const session = await getCurrentAdminSession();
   const activeOnly = searchParams.get("activeOnly") === "true";
   const db = getDb();
 
+  // Anonymous visitors must never receive unpublished offers.
   let query = "SELECT * FROM offers WHERE 1=1";
-  if (activeOnly) {
+  if (!session || activeOnly) {
     query += " AND published = 1 AND datetime(valid_until) >= datetime('now')";
   }
   query += " ORDER BY priority DESC, created_at DESC";
