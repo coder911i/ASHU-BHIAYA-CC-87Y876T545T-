@@ -3,6 +3,9 @@ import Link from "next/link";
 import { getDb } from "@/lib/db";
 import { Tag, ArrowRight, Clock, ShieldCheck, Info } from "lucide-react";
 
+// This page reads runtime database content; do not initialize SQLite during static prerender/build.
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Active Financial Offers & Promotions | VSR Associates",
   description: "Explore current verified processing fee waivers, balance transfer concessions, and festive lender promotions.",
