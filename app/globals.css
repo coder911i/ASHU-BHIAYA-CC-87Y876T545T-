@@ -219,3 +219,40 @@ input:disabled, select:disabled, textarea:disabled {
   color: #667085;
   background-color: #f2f4f7;
 }
+
+
+/* Investment detail pages: enforce readable contrast independently of utility CSS. */
+.investment-detail-page {
+  color: #172033;
+  color-scheme: light;
+}
+.investment-detail-page h1,
+.investment-detail-page h2,
+.investment-detail-page h3,
+.investment-detail-page h4,
+.investment-detail-page strong {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827;
+  opacity: 1 !important;
+}
+.investment-detail-page p,
+.investment-detail-page li,
+.investment-detail-page li span,
+.investment-detail-page .investment-copy {
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569;
+  opacity: 1 !important;
+}
+.investment-detail-page .investment-eyebrow {
+  color: #1d4ed8 !important;
+  -webkit-text-fill-color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+.investment-detail-page .investment-disclaimer {
+  color: #475569 !important;
+  background: #f8fafc;
+}
+.investment-detail-page .investment-disclaimer strong {
+  color: #111827 !important;
+}
