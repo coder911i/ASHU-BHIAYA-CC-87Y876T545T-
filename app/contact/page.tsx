@@ -93,7 +93,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <strong className="text-slate-900 block text-sm">Principal Office</strong>
-                  <span className="text-slate-600 mt-1 block leading-relaxed">
+                  <span className="text-slate-700 mt-1 block leading-relaxed">
                     VSR Tower, Ground &amp; 2nd Floor, Financial District, Mathura Road, Uttar Pradesh - 281001, India
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <strong className="text-slate-900 block text-sm">Telephone Assistance</strong>
-                  <a href="tel:+919876543210" className="text-slate-600 hover:text-slate-900 mt-0.5 block">
+                  <a href="tel:+919876543210" className="text-slate-700 hover:text-slate-950 mt-0.5 block">
                     +91 98765 43210
                   </a>
                   <span className="text-[11px] text-slate-500 block">Toll-free coordinator helpline</span>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <strong className="text-slate-900 block text-sm">Electronic Correspondence</strong>
-                  <a href="mailto:contact@vsrassociates.in" className="text-slate-600 hover:text-slate-900 mt-0.5 block">
+                  <a href="mailto:contact@vsrassociates.in" className="text-slate-700 hover:text-slate-950 mt-0.5 block">
                     contact@vsrassociates.in
                   </a>
                   <span className="text-[11px] text-slate-500 block">General and partner enquiries</span>
@@ -177,19 +177,19 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label htmlFor="contact-form-name" className="text-xs font-semibold text-slate-600">Your Full Name *</label>
+                    <label htmlFor="contact-form-name" className="text-xs font-semibold text-slate-700">Your Full Name *</label>
                     <input
                       id="contact-form-name"
                       type="text"
                       placeholder="e.g., Suman Verma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-indigo-50 border border-slate-700 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="contact-form-mobile" className="text-xs font-semibold text-slate-600">Mobile Number *</label>
+                    <label htmlFor="contact-form-mobile" className="text-xs font-semibold text-slate-700">Mobile Number *</label>
                     <input
                       id="contact-form-mobile"
                       type="tel"
@@ -197,46 +197,46 @@ export default function ContactPage() {
                       placeholder="9876543210"
                       value={formData.mobile}
                       onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, "") })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-indigo-50 border border-slate-700 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label htmlFor="contact-form-email" className="text-xs font-semibold text-slate-600">Email Address (Optional)</label>
+                    <label htmlFor="contact-form-email" className="text-xs font-semibold text-slate-700">Email Address (Optional)</label>
                     <input
                       id="contact-form-email"
                       type="email"
                       placeholder="suman@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-indigo-50 border border-slate-700 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="contact-form-subject" className="text-xs font-semibold text-slate-600">Subject / Category</label>
+                    <label htmlFor="contact-form-subject" className="text-xs font-semibold text-slate-700">Subject / Category</label>
                     <input
                       id="contact-form-subject"
                       type="text"
                       placeholder="e.g., Home Loan Balance Transfer"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-indigo-50 border border-slate-700 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-form-message" className="text-xs font-semibold text-slate-600">Message / Requirement Details *</label>
+                  <label htmlFor="contact-form-message" className="text-xs font-semibold text-slate-700">Message / Requirement Details *</label>
                   <textarea
                     id="contact-form-message"
                     rows={4}
                     placeholder="Describe how we can assist you..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-indigo-50 border border-slate-700 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none"
                   />
                 </div>
 
