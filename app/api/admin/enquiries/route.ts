@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentAdminSession } from "@/lib/auth/session";
 import { getDb } from "@/lib/db";
+import crypto from "crypto";
 
 const ENQUIRY_STATUSES = new Set(["new", "contacted", "in_review", "closed"]);
 
